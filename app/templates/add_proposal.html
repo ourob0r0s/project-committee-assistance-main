@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="d-flex aligns-items-center justify-content-center">Sign in</h2>
+<div class="d-flex aligns-items-center justify-content-center">
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            <div class="form-group" >
+            {{ form.title.label }}<br>
+            {{ form.title(class_="form-control",size=64) }}
+            </div>
+            {% for error in form.title.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            <div class="form-group" >
+            {{ form.desc.label }}<br>
+            {{ form.desc(class_="form-control", size=128) }}
+            </div>
+            {% for error in form.desc.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <br>
+        <p>{{ form.submit(class_="form-control btn btn-primary") }}</p>
+    </form>
+</div>
+{% endblock %}
